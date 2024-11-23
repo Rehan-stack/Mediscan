@@ -4,7 +4,6 @@ Mediscan is a AI based disease diagnostic and health management system.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
 ```bash
 pip install -r requirements.txt
