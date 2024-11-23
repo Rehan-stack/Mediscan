@@ -1,0 +1,14 @@
+{% for today in appointments %}
+<tr>
+    <td>
+        <h2 class="table-avatar">
+            <a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ today.patient.featured_image.url }}" alt="User Image" /></a>
+            <a href="patient-profile.html">{{today.patient.name}}<span>#PT{{today.serial_number}}</span></a>
+        </h2>
+    </td>
+    <td>{{today.date}}<span class="d-block text-info">{{today.time}}</span></td>
+    <td>{{ today.appointment_type }}</td>
+    <td>{{today.patient.email}}<span class="d-block text-info">+880{{today.patient.phone_number}}</span></td>
+    <td>{% if today.appointment_status == 'pending' %}<span class="badge badge-pill bg-warning-light">Pending</span>{% endif %}{% if today.appointment_status == 'confirmed' %}<span class="badge badge-pill bg-success-light">Confirmed</span>{% endif %}</td>
+</tr>
+{% endfor %}

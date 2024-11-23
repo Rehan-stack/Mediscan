@@ -1,0 +1,22 @@
+{% for appointment in appointments %}
+<tr>
+    <td>
+        <h2 class="table-avatar">
+            <a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{appointment.patient.featured_image.url}}" alt="User Image" /></a>
+            <a href="patient-profile.html">{{appointment.patient.name}}<span>#PT{{appointment.serial_number}}</span></a>
+        </h2>
+    </td>
+    <td>{{appointment.date}}<span class="d-block text-info">{{appointment.time}}</span></td>
+    <td>{{ appointment.appointment_type }}</td>
+    <td>{{appointment.patient.email}}<span class="d-block text-info">Phone: {{appointment.patient.phone_number}}</span></td>
+    <td>{% if appointment.payment_status == 'pending' %}<span class="badge badge-pill bg-warning-light">Pending</span>{% endif %}{% if appointment.payment_status == 'VALID' %}<span class="badge badge-pill bg-success-light">Paid</span>{% endif %}</td>
+    <td>{% if appointment.appointment_status == 'pending' %}<span class="badge badge-pill bg-warning-light">Pending</span>{% endif %}{% if appointment.appointment_status == 'confirmed' %}<span class="badge badge-pill bg-success-light">Confirmed</span>{% endif %}{% if appointment.appointment_status == 'cancelled' %}<span class="badge badge-pill bg-danger-light">Cancelled</span>{% endif %}</td>
+    <td class="text-right">
+        <div class="table-action">
+            <a href="javascript:void(0);" class="btn btn-sm bg-info-light"><i class="far fa-eye"></i> View</a>
+            <a href="{% url 'accept-appointment' pk=appointment.id %}" onclick="return confirm('Accept appointment?');" class="btn btn-sm bg-success-light"><i class="fas fa-check"></i> Accept</a>
+            <a href="{% url 'reject-appointment' pk=appointment.id %}" onclick="return confirm('Reject Appointment?');" class="btn btn-sm bg-danger-light"><i class="fas fa-times"></i> Cancel</a>
+        </div>
+    </td>
+</tr>
+{% endfor %}
