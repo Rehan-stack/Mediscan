@@ -1,37 +1,30 @@
-# Django Project
+# Mediscan
 
-This is a Django project designed for [brief description of your project, e.g., "a healthcare management system" or "a blog platform"]. This README provides step-by-step instructions to set up, run, and manage the project locally.
+Mediscan is a AI based disease diagnostic and health management system.
 
----
+## Installation
 
-## Overview
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
-This Django project includes the following features:
-- User authentication (registration, login, logout)
-- CRUD operations for models
-- Integration with a database (SQLite by default)
-- Static and media file management
-- Admin panel for managing the application
-- [Add any additional features specific to your project]
-
----
-
-## Prerequisites
-
-Before running this project, ensure the following tools are installed on your system:
-- **Python 3.x** (preferably 3.7 or later)
-- **pip** (Python package manager)
-- **virtualenv** (optional but recommended)
-- **Git** (for version control)
-- **A database server** (SQLite is the default; optional for advanced users: PostgreSQL, MySQL, etc.)
-
----
-
-## Setup Instructions
-
-### 1. Clone the Repository
-
-Use Git to clone the repository to your local machine:
 ```bash
-git clone https://github.com/your-username/your-repository.git
-cd your-repository
+pip install -r requirements.txt
+```
+
+## Usage
+
+```python
+python manage.py makemigrations
+python manage.py migrate
+
+
+# run server
+python manage.py runserver
+
+
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
